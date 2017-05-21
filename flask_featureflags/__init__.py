@@ -23,10 +23,10 @@ from flask.signals import Namespace
 
 __version__ = '1.0'
 
-log = logging.getLogger(u'flask-featureflags')
+log = logging.getLogger('flask-featureflags')
 
-RAISE_ERROR_ON_MISSING_FEATURES = u'RAISE_ERROR_ON_MISSING_FEATURES'
-FEATURE_FLAGS_CONFIG = u'FEATURE_FLAGS'
+RAISE_ERROR_ON_MISSING_FEATURES = 'RAISE_ERROR_ON_MISSING_FEATURES'
+FEATURE_FLAGS_CONFIG = 'FEATURE_FLAGS'
 
 EXTENSION_NAME = "FeatureFlags"
 
@@ -67,7 +67,7 @@ def AppConfigFlagHandler(feature=None):
 
    """
   if not current_app:
-    log.warn(u"Got a request to check for {feature} but we're outside the request context. Returning False".format(feature=feature))
+    log.warn("Got a request to check for {feature} but we're outside the request context. Returning False".format(feature=feature))
     return False
 
   try:
@@ -78,7 +78,7 @@ def AppConfigFlagHandler(feature=None):
 
 class FeatureFlag(object):
 
-  JINJA_TEST_NAME = u'active_feature'
+  JINJA_TEST_NAME = 'active_feature'
 
   def __init__(self, app=None):
     if app is not None:
@@ -137,7 +137,7 @@ class FeatureFlag(object):
         found = True
 
     if not found:
-      message = u"No feature flag defined for {feature}".format(feature=feature)
+      message = "No feature flag defined for {feature}".format(feature=feature)
       if current_app.debug and current_app.config.get(RAISE_ERROR_ON_MISSING_FEATURES, False):
         raise KeyError(message)
       else:
@@ -158,7 +158,7 @@ def is_active(feature):
       raise AssertionError("Oops. This application doesn't have the Flask-FeatureFlag extention installed.")
 
   else:
-    log.warn(u"Got a request to check for {feature} but we're running outside the request context. Check your setup. Returning False".format(feature=feature))
+    log.warn("Got a request to check for {feature} but we're running outside the request context. Check your setup. Returning False".format(feature=feature))
     return False
 
 
@@ -176,10 +176,10 @@ def is_active_feature(feature, redirect_to=None, redirect=None):
           url = url_for(redirect)
 
         if url:
-          log.debug(u'Feature {feature} is off, redirecting to {url}'.format(feature=feature, url=url))
+          log.debug('Feature {feature} is off, redirecting to {url}'.format(feature=feature, url=url))
           return _redirect(url, code=302)
         else:
-          log.debug(u'Feature {feature} is off, aborting request'.format(feature=feature))
+          log.debug('Feature {feature} is off, aborting request'.format(feature=feature))
           abort(404)
 
       return func(*args, **kwargs)

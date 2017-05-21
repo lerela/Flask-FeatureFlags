@@ -13,7 +13,7 @@ class SQLAlchemyFeatureFlags(object):
 
   def __call__(self, feature=None):
     if not current_app:
-      log.warn(u"Got a request to check for {feature} but we're outside the request context. Returning False".format(feature=feature))
+      log.warn("Got a request to check for {feature} but we're outside the request context. Returning False".format(feature=feature))
       return False
 
     try:
