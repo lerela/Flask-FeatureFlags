@@ -1,6 +1,8 @@
 Flask FeatureFlags
 ===================
 
+This fork has been archived as it is no longer used by the digitalmarketplace team; however please feel free to make your own fork!
+
 [![PyPI version](https://badge.fury.io/py/Flask_Featureflags.svg)](http://badge.fury.io/py/Flask_Featureflags) [![Build Status](https://travis-ci.org/trustrachel/Flask-FeatureFlags.png)](https://travis-ci.org/trustrachel/Flask-FeatureFlags) [![Coverage Status](https://coveralls.io/repos/trustrachel/Flask-FeatureFlags/badge.png?branch=master)](https://coveralls.io/r/trustrachel/Flask-FeatureFlags?branch=master)
 
 This is a Flask extension that adds feature flagging to your applications. This lets you turn parts of your site on or off based on configuration.
